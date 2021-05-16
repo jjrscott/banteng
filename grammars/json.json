@@ -1,0 +1,9 @@
+{
+  "rules": {
+    "object": [
+      "{"
+    ]
+  },
+  "syntax": "object",
+  "url": "https://www.json.org"
+}

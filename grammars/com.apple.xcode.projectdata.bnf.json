@@ -1,0 +1,220 @@
+{
+   "root" : "__root",
+   "syntax" : {
+      "_" : {
+         "$content" : {
+            "$content" : [
+               {
+                  "$content" : "whitespace",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "comment_multiline",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "comment",
+                  "$isa" : "terminal"
+               }
+            ],
+            "$isa" : "or"
+         },
+         "$min" : 1
+      },
+      "__root" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "value",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "array" : {
+         "$content" : [
+            {
+               "$content" : "(",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : "array_entry",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : "_",
+                        "$isa" : "terminal"
+                     }
+                  ],
+                  "$isa" : "or"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : ")",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "array_entry" : {
+         "$content" : [
+            {
+               "$content" : "value",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : ",",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "bareword" : {
+         "$content" : "[_a-zA-Z0-9\\.\\/]+",
+         "$isa" : "pattern"
+      },
+      "comment" : {
+         "$content" : "\\/\\/[^\\n]*\\n",
+         "$isa" : "pattern"
+      },
+      "comment_multiline" : {
+         "$content" : "\\/\\*.*?\\*\\/",
+         "$isa" : "pattern"
+      },
+      "dictionary" : {
+         "$content" : [
+            {
+               "$content" : "{",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : "dictionary_entry",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : "_",
+                        "$isa" : "terminal"
+                     }
+                  ],
+                  "$isa" : "or"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "}",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "dictionary_entry" : {
+         "$content" : [
+            {
+               "$content" : "key",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "value",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : ";",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "double_quoted_string" : {
+         "$content" : "\"(\\\\.|[^\"])*\"",
+         "$isa" : "pattern"
+      },
+      "key" : {
+         "$content" : [
+            {
+               "$content" : "bareword",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "double_quoted_string",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "value" : {
+         "$content" : [
+            {
+               "$content" : "bareword",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "dictionary",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "double_quoted_string",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "array",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "whitespace" : {
+         "$content" : "[ \\t\\n]+",
+         "$isa" : "pattern"
+      }
+   }
+}

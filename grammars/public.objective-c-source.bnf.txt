@@ -1,0 +1,164 @@
+                           __root = (implemention | interface | import | c_pragma | /.|\n/)*;
+                                _ = (whitespace | comment)+;
+                    apple_keyword = /(NS|UI|CB|CG)[a-zA-Z_][a-zA-Z0-9_]*/;
+                    array_literal = _? '@[' implemention_content* ']';
+                           AT_END = _? '@end';
+                AT_IMPLEMENTATION = _? '@implementation';
+                     AT_INTERFACE = _? '@interface';
+                      AT_PROPERTY = _? '@property';
+                    AT_SYNTHESIZE = _? '@synthesize';
+                         c_import = _? '#import' _? (double_quoted_string | file_import_search_string);
+                        c_keyword = 'void'
+                                  | 'char'
+                                  | 'short'
+                                  | 'int'
+                                  | 'long'
+                                  | 'float'
+                                  | 'double'
+                                  | 'signed'
+                                  | ('unsigned' 'char')
+                                  | 'unsigned'
+                                  | 'BOOL'
+                                  | 'id'
+                                  | 'const'
+                                  | 'volatile'
+                                  | '_Nullable'
+                                  | '_Nonnull'
+                                  | 'self'
+                                  | 'super'
+                                  | 'return'
+                                  | 'YES'
+                                  | 'NO'
+                                  | 'case'
+                                  | 'break'
+                                  | 'nil'
+                                  | 'if'
+                                  | 'while'
+                                  | 'else'
+                                  | 'switch'
+                                  | 'do'
+                                  | 'nil'
+                                  | 'static'
+                                  | 'for'
+                                  | 'static'
+                                  | 'NULL'
+                                  | 'static'
+                                  ;
+                       c_operator = '!='
+                                  | '&&'
+                                  | '&='
+                                  | '&'
+                                  | '||'
+                                  | '|='
+                                  | '|'
+                                  | '!'
+                                  | '+='
+                                  | '++'
+                                  | '+'
+                                  | '-='
+                                  | '--'
+                                  | '-'
+                                  | '*='
+                                  | '*'
+                                  | '/='
+                                  | '/'
+                                  | '/='
+                                  | '>>='
+                                  | '>>'
+                                  | '>='
+                                  | '<<='
+                                  | '<<'
+                                  | '<='
+                                  | '=='
+                                  | '!='
+                                  | '='
+                                  | '<'
+                                  | '>'
+                                  | '.'
+                                  ;
+                         c_pragma = _? ('#ifdef' | '#if' | '#endif' | '#else' | '#pragma') /[^\n]+/?;
+                         C_SWITCH = 'switch';
+                          comment = /\/\/[^\n]*\n/
+                                  | /\/\*.*?\*\//
+                                  ;
+                  curly_bracketed = _? '{' implemention_content* '}';
+               dictionary_literal = _? '@(' implemention_content* ')';
+             double_quoted_string = /"(?:\\.|[^"])*"/;
+        file_import_search_string = /<[^\>]+>/;
+                        HASH_ELSE = _? '#else';
+                       HASH_ENDIF = _? '#endif';
+                          HASH_IF = _? '#if';
+                       HASH_IFDEF = _? '#ifdef';
+                       identifier = _? (c_keyword | apple_keyword | /[a-zA-Z_][a-zA-Z0-9_]*/);
+                     implemention = AT_IMPLEMENTATION _? implemention_name implemention_content* AT_END;
+             implemention_content = identifier
+                                  | _
+                                  | square_bracketed
+                                  | objc_property_synthesize
+                                  | method
+                                  | c_operator
+                                  | round_bracketed
+                                  | curly_bracketed
+                                  | string_literal
+                                  | array_literal
+                                  | dictionary_literal
+                                  | scalar_literal
+                                  | switch_statement
+                                  | c_pragma
+                                  | number
+                                  | implemention_unknown_content
+                                  ;
+                implemention_name = identifier _? ('(' _? identifier _? ')')?;
+     implemention_unknown_content = /[^@}\]\)]|@(?!end)/;
+                           import = c_import
+                                  | objc_import
+                                  ;
+                        interface = AT_INTERFACE _? interface_name interface_content* AT_END;
+                interface_content = identifier
+                                  | _
+                                  | square_bracketed
+                                  | objc_property_definition
+                                  | (method_definition ';')
+                                  | c_operator
+                                  | round_bracketed
+                                  | curly_bracketed
+                                  | string_literal
+                                  | array_literal
+                                  | dictionary_literal
+                                  | scalar_literal
+                                  | c_pragma
+                                  | implemention_unknown_content
+                                  ;
+                   interface_name = identifier _? (('(' _? identifier? _? ')') | (':' _? identifier)) (_? '<' _? identifier _? (',' _? identifier)* _? '>')? interface_content*;
+                           method = method_definition method_implementation;
+                method_definition = method_definition_type _? round_bracketed ((_? identifier _? ':' _? round_bracketed _? identifier)+ | (_? identifier));
+           method_definition_type = /[+-]/;
+            method_implementation = curly_bracketed;
+                           number = /\d+/;
+                      objc_import = _? '@import' _? objc_module_name _? ';';
+                 objc_module_name = /[a-zA-Z_][a-zA-Z0-9_]*(\.[a-zA-Z_][a-zA-Z0-9_]*)*/;
+         objc_property_definition = AT_PROPERTY _? ('(' _? objc_property_definition_property (_? ',' _? objc_property_definition_property)* _? ')')? (curly_bracketed | square_bracketed | /[^;]/)* ';';
+objc_property_definition_property = 'assign'
+                                  | 'atomic'
+                                  | 'class'
+                                  | 'copy'
+                                  | ('getter' '=' identifier)
+                                  | 'nonatomic'
+                                  | 'nonnull'
+                                  | 'nullable'
+                                  | 'readonly'
+                                  | 'readwrite'
+                                  | 'retain'
+                                  | ('setter' '=' identifier ':')
+                                  | 'strong'
+                                  | 'weak'
+                                  ;
+               objc_property_ivar = _? identifier (_? '=' _? identifier)?;
+         objc_property_synthesize = AT_SYNTHESIZE objc_property_ivar* _? ';';
+                  round_bracketed = _? '(' implemention_content* ')';
+                   scalar_literal = _? '@{' implemention_content* '}';
+             single_quoted_string = /'(?:\\.|[^'])*'/;
+                 square_bracketed = _? '[' implemention_content* ']';
+                   string_literal = _? /@"(?:\\.|[^"])*"/;
+                 switch_statement = _? C_SWITCH round_bracketed curly_bracketed;
+                       whitespace = /[ \t\n]+/;

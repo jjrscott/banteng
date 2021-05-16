@@ -1,0 +1,19 @@
+              __root = _? value;
+                   _ = (whitespace | comment_multiline | comment)+;
+               array = '(' (array_entry | _)* ')';
+         array_entry = value _? ',';
+            bareword = /[_a-zA-Z0-9\.\/]+/;
+             comment = /\/\/[^\n]*\n/;
+   comment_multiline = /\/\*.*?\*\//;
+          dictionary = '{' (dictionary_entry | _)* '}';
+    dictionary_entry = key _? '=' _? value _? ';';
+double_quoted_string = /"(\\.|[^"])*"/;
+                 key = bareword
+                     | double_quoted_string
+                     ;
+               value = bareword
+                     | dictionary
+                     | double_quoted_string
+                     | array
+                     ;
+          whitespace = /[ \t\n]+/;

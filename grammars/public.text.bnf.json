@@ -1,0 +1,16 @@
+{
+   "root" : "__root",
+   "syntax" : {
+      "__root" : {
+         "$content" : {
+            "$content" : "line",
+            "$isa" : "terminal"
+         },
+         "$min" : 0
+      },
+      "line" : {
+         "$content" : "[^\\n]*\\n?",
+         "$isa" : "pattern"
+      }
+   }
+}

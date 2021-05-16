@@ -1,0 +1,1732 @@
+{
+   "root" : "__root",
+   "syntax" : {
+      "AT_END" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@end",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "AT_IMPLEMENTATION" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@implementation",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "AT_INTERFACE" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@interface",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "AT_PROPERTY" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@property",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "AT_SYNTHESIZE" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@synthesize",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "C_SWITCH" : {
+         "$content" : "switch",
+         "$isa" : "string"
+      },
+      "HASH_ELSE" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "#else",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "HASH_ENDIF" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "#endif",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "HASH_IF" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "#if",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "HASH_IFDEF" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "#ifdef",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "_" : {
+         "$content" : {
+            "$content" : [
+               {
+                  "$content" : "whitespace",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "comment",
+                  "$isa" : "terminal"
+               }
+            ],
+            "$isa" : "or"
+         },
+         "$min" : 1
+      },
+      "__root" : {
+         "$content" : {
+            "$content" : [
+               {
+                  "$content" : "implemention",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "interface",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "import",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : "c_pragma",
+                  "$isa" : "terminal"
+               },
+               {
+                  "$content" : ".|\\n",
+                  "$isa" : "pattern"
+               }
+            ],
+            "$isa" : "or"
+         },
+         "$min" : 0
+      },
+      "apple_keyword" : {
+         "$content" : "(NS|UI|CB|CG)[a-zA-Z_][a-zA-Z0-9_]*",
+         "$isa" : "pattern"
+      },
+      "array_literal" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@[",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "]",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "c_import" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "#import",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "double_quoted_string",
+                     "$isa" : "terminal"
+                  },
+                  {
+                     "$content" : "file_import_search_string",
+                     "$isa" : "terminal"
+                  }
+               ],
+               "$isa" : "or"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "c_keyword" : {
+         "$content" : [
+            {
+               "$content" : "void",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "char",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "short",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "int",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "long",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "float",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "double",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "signed",
+               "$isa" : "string"
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "unsigned",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "char",
+                     "$isa" : "string"
+                  }
+               ],
+               "$isa" : "and"
+            },
+            {
+               "$content" : "unsigned",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "BOOL",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "id",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "const",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "volatile",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "_Nullable",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "_Nonnull",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "self",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "super",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "return",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "YES",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "NO",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "case",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "break",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "nil",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "if",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "while",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "else",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "switch",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "do",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "nil",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "static",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "for",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "static",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "NULL",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "static",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "c_operator" : {
+         "$content" : [
+            {
+               "$content" : "!=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "&&",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "&=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "&",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "||",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "|=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "|",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "!",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "+=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "++",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "+",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "-=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "--",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "-",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "*=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "*",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "/=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "/",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "/=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : ">>=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : ">>",
+               "$isa" : "string"
+            },
+            {
+               "$content" : ">=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "<<=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "<<",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "<=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "==",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "!=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "=",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "<",
+               "$isa" : "string"
+            },
+            {
+               "$content" : ">",
+               "$isa" : "string"
+            },
+            {
+               "$content" : ".",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "c_pragma" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "#ifdef",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "#if",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "#endif",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "#else",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "#pragma",
+                     "$isa" : "string"
+                  }
+               ],
+               "$isa" : "or"
+            },
+            {
+               "$content" : {
+                  "$content" : "[^\\n]+",
+                  "$isa" : "pattern"
+               },
+               "$max" : 1,
+               "$min" : 0
+            }
+         ],
+         "$isa" : "and"
+      },
+      "comment" : {
+         "$content" : [
+            {
+               "$content" : "\\/\\/[^\\n]*\\n",
+               "$isa" : "pattern"
+            },
+            {
+               "$content" : "\\/\\*.*?\\*\\/",
+               "$isa" : "pattern"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "curly_bracketed" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "{",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "}",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "dictionary_literal" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@(",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : ")",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "double_quoted_string" : {
+         "$content" : "\"(?:\\\\.|[^\"])*\"",
+         "$isa" : "pattern"
+      },
+      "file_import_search_string" : {
+         "$content" : "<[^\\>]+>",
+         "$isa" : "pattern"
+      },
+      "identifier" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "c_keyword",
+                     "$isa" : "terminal"
+                  },
+                  {
+                     "$content" : "apple_keyword",
+                     "$isa" : "terminal"
+                  },
+                  {
+                     "$content" : "[a-zA-Z_][a-zA-Z0-9_]*",
+                     "$isa" : "pattern"
+                  }
+               ],
+               "$isa" : "or"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "implemention" : {
+         "$content" : [
+            {
+               "$content" : "AT_IMPLEMENTATION",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "implemention_name",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "AT_END",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "implemention_content" : {
+         "$content" : [
+            {
+               "$content" : "identifier",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "_",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "square_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "objc_property_synthesize",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "method",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "c_operator",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "round_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "curly_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "string_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "array_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "dictionary_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "scalar_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "switch_statement",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "c_pragma",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "number",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "implemention_unknown_content",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "implemention_name" : {
+         "$content" : [
+            {
+               "$content" : "identifier",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : "(",
+                        "$isa" : "string"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "identifier",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : ")",
+                        "$isa" : "string"
+                     }
+                  ],
+                  "$isa" : "and"
+               },
+               "$max" : 1,
+               "$min" : 0
+            }
+         ],
+         "$isa" : "and"
+      },
+      "implemention_unknown_content" : {
+         "$content" : "[^@}\\]\\)]|@(?!end)",
+         "$isa" : "pattern"
+      },
+      "import" : {
+         "$content" : [
+            {
+               "$content" : "c_import",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "objc_import",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "interface" : {
+         "$content" : [
+            {
+               "$content" : "AT_INTERFACE",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "interface_name",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "interface_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "AT_END",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "interface_content" : {
+         "$content" : [
+            {
+               "$content" : "identifier",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "_",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "square_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "objc_property_definition",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "method_definition",
+                     "$isa" : "terminal"
+                  },
+                  {
+                     "$content" : ";",
+                     "$isa" : "string"
+                  }
+               ],
+               "$isa" : "and"
+            },
+            {
+               "$content" : "c_operator",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "round_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "curly_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "string_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "array_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "dictionary_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "scalar_literal",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "c_pragma",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "implemention_unknown_content",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "interface_name" : {
+         "$content" : [
+            {
+               "$content" : "identifier",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : [
+                        {
+                           "$content" : "(",
+                           "$isa" : "string"
+                        },
+                        {
+                           "$content" : {
+                              "$content" : "_",
+                              "$isa" : "terminal"
+                           },
+                           "$max" : 1,
+                           "$min" : 0
+                        },
+                        {
+                           "$content" : {
+                              "$content" : "identifier",
+                              "$isa" : "terminal"
+                           },
+                           "$max" : 1,
+                           "$min" : 0
+                        },
+                        {
+                           "$content" : {
+                              "$content" : "_",
+                              "$isa" : "terminal"
+                           },
+                           "$max" : 1,
+                           "$min" : 0
+                        },
+                        {
+                           "$content" : ")",
+                           "$isa" : "string"
+                        }
+                     ],
+                     "$isa" : "and"
+                  },
+                  {
+                     "$content" : [
+                        {
+                           "$content" : ":",
+                           "$isa" : "string"
+                        },
+                        {
+                           "$content" : {
+                              "$content" : "_",
+                              "$isa" : "terminal"
+                           },
+                           "$max" : 1,
+                           "$min" : 0
+                        },
+                        {
+                           "$content" : "identifier",
+                           "$isa" : "terminal"
+                        }
+                     ],
+                     "$isa" : "and"
+                  }
+               ],
+               "$isa" : "or"
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "<",
+                        "$isa" : "string"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "identifier",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : {
+                           "$content" : [
+                              {
+                                 "$content" : ",",
+                                 "$isa" : "string"
+                              },
+                              {
+                                 "$content" : {
+                                    "$content" : "_",
+                                    "$isa" : "terminal"
+                                 },
+                                 "$max" : 1,
+                                 "$min" : 0
+                              },
+                              {
+                                 "$content" : "identifier",
+                                 "$isa" : "terminal"
+                              }
+                           ],
+                           "$isa" : "and"
+                        },
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : ">",
+                        "$isa" : "string"
+                     }
+                  ],
+                  "$isa" : "and"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : {
+                  "$content" : "interface_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            }
+         ],
+         "$isa" : "and"
+      },
+      "method" : {
+         "$content" : [
+            {
+               "$content" : "method_definition",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "method_implementation",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "method_definition" : {
+         "$content" : [
+            {
+               "$content" : "method_definition_type",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "round_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : {
+                        "$content" : [
+                           {
+                              "$content" : {
+                                 "$content" : "_",
+                                 "$isa" : "terminal"
+                              },
+                              "$max" : 1,
+                              "$min" : 0
+                           },
+                           {
+                              "$content" : "identifier",
+                              "$isa" : "terminal"
+                           },
+                           {
+                              "$content" : {
+                                 "$content" : "_",
+                                 "$isa" : "terminal"
+                              },
+                              "$max" : 1,
+                              "$min" : 0
+                           },
+                           {
+                              "$content" : ":",
+                              "$isa" : "string"
+                           },
+                           {
+                              "$content" : {
+                                 "$content" : "_",
+                                 "$isa" : "terminal"
+                              },
+                              "$max" : 1,
+                              "$min" : 0
+                           },
+                           {
+                              "$content" : "round_bracketed",
+                              "$isa" : "terminal"
+                           },
+                           {
+                              "$content" : {
+                                 "$content" : "_",
+                                 "$isa" : "terminal"
+                              },
+                              "$max" : 1,
+                              "$min" : 0
+                           },
+                           {
+                              "$content" : "identifier",
+                              "$isa" : "terminal"
+                           }
+                        ],
+                        "$isa" : "and"
+                     },
+                     "$min" : 1
+                  },
+                  {
+                     "$content" : [
+                        {
+                           "$content" : {
+                              "$content" : "_",
+                              "$isa" : "terminal"
+                           },
+                           "$max" : 1,
+                           "$min" : 0
+                        },
+                        {
+                           "$content" : "identifier",
+                           "$isa" : "terminal"
+                        }
+                     ],
+                     "$isa" : "and"
+                  }
+               ],
+               "$isa" : "or"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "method_definition_type" : {
+         "$content" : "[+-]",
+         "$isa" : "pattern"
+      },
+      "method_implementation" : {
+         "$content" : "curly_bracketed",
+         "$isa" : "terminal"
+      },
+      "number" : {
+         "$content" : "\\d+",
+         "$isa" : "pattern"
+      },
+      "objc_import" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@import",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "objc_module_name",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : ";",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "objc_module_name" : {
+         "$content" : "[a-zA-Z_][a-zA-Z0-9_]*(\\.[a-zA-Z_][a-zA-Z0-9_]*)*",
+         "$isa" : "pattern"
+      },
+      "objc_property_definition" : {
+         "$content" : [
+            {
+               "$content" : "AT_PROPERTY",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : "(",
+                        "$isa" : "string"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "objc_property_definition_property",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : [
+                              {
+                                 "$content" : {
+                                    "$content" : "_",
+                                    "$isa" : "terminal"
+                                 },
+                                 "$max" : 1,
+                                 "$min" : 0
+                              },
+                              {
+                                 "$content" : ",",
+                                 "$isa" : "string"
+                              },
+                              {
+                                 "$content" : {
+                                    "$content" : "_",
+                                    "$isa" : "terminal"
+                                 },
+                                 "$max" : 1,
+                                 "$min" : 0
+                              },
+                              {
+                                 "$content" : "objc_property_definition_property",
+                                 "$isa" : "terminal"
+                              }
+                           ],
+                           "$isa" : "and"
+                        },
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : ")",
+                        "$isa" : "string"
+                     }
+                  ],
+                  "$isa" : "and"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : "curly_bracketed",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : "square_bracketed",
+                        "$isa" : "terminal"
+                     },
+                     {
+                        "$content" : "[^;]",
+                        "$isa" : "pattern"
+                     }
+                  ],
+                  "$isa" : "or"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : ";",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "objc_property_definition_property" : {
+         "$content" : [
+            {
+               "$content" : "assign",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "atomic",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "class",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "copy",
+               "$isa" : "string"
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "getter",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "=",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "identifier",
+                     "$isa" : "terminal"
+                  }
+               ],
+               "$isa" : "and"
+            },
+            {
+               "$content" : "nonatomic",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "nonnull",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "nullable",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "readonly",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "readwrite",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "retain",
+               "$isa" : "string"
+            },
+            {
+               "$content" : [
+                  {
+                     "$content" : "setter",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "=",
+                     "$isa" : "string"
+                  },
+                  {
+                     "$content" : "identifier",
+                     "$isa" : "terminal"
+                  },
+                  {
+                     "$content" : ":",
+                     "$isa" : "string"
+                  }
+               ],
+               "$isa" : "and"
+            },
+            {
+               "$content" : "strong",
+               "$isa" : "string"
+            },
+            {
+               "$content" : "weak",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "or"
+      },
+      "objc_property_ivar" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "identifier",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : [
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "=",
+                        "$isa" : "string"
+                     },
+                     {
+                        "$content" : {
+                           "$content" : "_",
+                           "$isa" : "terminal"
+                        },
+                        "$max" : 1,
+                        "$min" : 0
+                     },
+                     {
+                        "$content" : "identifier",
+                        "$isa" : "terminal"
+                     }
+                  ],
+                  "$isa" : "and"
+               },
+               "$max" : 1,
+               "$min" : 0
+            }
+         ],
+         "$isa" : "and"
+      },
+      "objc_property_synthesize" : {
+         "$content" : [
+            {
+               "$content" : "AT_SYNTHESIZE",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : {
+                  "$content" : "objc_property_ivar",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : ";",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "round_bracketed" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "(",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : ")",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "scalar_literal" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@{",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "}",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "single_quoted_string" : {
+         "$content" : "'(?:\\\\.|[^'])*'",
+         "$isa" : "pattern"
+      },
+      "square_bracketed" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "[",
+               "$isa" : "string"
+            },
+            {
+               "$content" : {
+                  "$content" : "implemention_content",
+                  "$isa" : "terminal"
+               },
+               "$min" : 0
+            },
+            {
+               "$content" : "]",
+               "$isa" : "string"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "string_literal" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "@\"(?:\\\\.|[^\"])*\"",
+               "$isa" : "pattern"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "switch_statement" : {
+         "$content" : [
+            {
+               "$content" : {
+                  "$content" : "_",
+                  "$isa" : "terminal"
+               },
+               "$max" : 1,
+               "$min" : 0
+            },
+            {
+               "$content" : "C_SWITCH",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "round_bracketed",
+               "$isa" : "terminal"
+            },
+            {
+               "$content" : "curly_bracketed",
+               "$isa" : "terminal"
+            }
+         ],
+         "$isa" : "and"
+      },
+      "whitespace" : {
+         "$content" : "[ \\t\\n]+",
+         "$isa" : "pattern"
+      }
+   }
+}
