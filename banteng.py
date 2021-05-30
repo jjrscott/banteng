@@ -68,25 +68,41 @@ def generate_ast(text, grammar):
     # if isinstance(rule, list):
 
     foo = dict()
-    foo['ast'], foo['unmatched'] = parse_rule(text, grammar, grammar['rules'][grammar['syntax']])
-
+    foo['ast'], foo['unmatched'] = parse_rule(text, grammar, grammar['syntax'])
     return foo
 
 def parse_rule(text, grammar, rule):
+    subresult, subtext = _parse_rule(text, grammar, rule)
+    if subresult and isinstance(rule, str) and rule != subresult:
+        subresult = {"type" : rule, "result" : subresult}
+
+
+    return subresult, subtext
+
+def _parse_rule(text, grammar, rule):
     if isinstance(rule, str):
-        if text.startswith(rule):
+        if rule in grammar['rules']:
+            return parse_rule(text, grammar, grammar['rules'][rule])
+        elif text.startswith(rule):
             return rule, text[len(rule):]
         else:
             return None, text
     elif isinstance(rule, dict) and 'type' in rule:
         if rule['type'] == 'any':
-            for subrule in rule['expressions']:
-                subresult, subtext =  parse_rule(text, grammar, subrule)
+            for subrule in rule['values']:
+                subresult, subtext = parse_rule(text, grammar, subrule)
                 if subresult:
                     return subresult, subtext
             return None, text
-        elif rule['type'] == 'symbol':
-            return parse_rule(text, grammar, grammar['rules'][rule['symbol']])
+        elif rule['type'] == 'all':
+            results = list()
+            for subrule in rule['values']:
+                subresult, text = parse_rule(text, grammar, subrule)
+                if subresult:
+                    results.append(subresult)
+                else:
+                    return None, text
+            return results, text
 
     raise Exception(f'Unknown rule: {rule}')
 
