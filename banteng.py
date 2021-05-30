@@ -85,8 +85,8 @@ def parse_rule(text, grammar, rule):
                 if subresult:
                     return subresult, subtext
             return None, text
-
-
+        elif rule['type'] == 'symbol':
+            return parse_rule(text, grammar, grammar['rules'][rule['symbol']])
 
     raise Exception(f'Unknown rule: {rule}')
 

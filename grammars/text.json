@@ -1,9 +1,13 @@
 {
   "rules": {
+    "good": "Good",
     "lines": {
       "expressions": [
         "Hello",
-        "Good"
+        {
+          "symbol": "good",
+          "type": "symbol"
+        }
       ],
       "type": "any"
     }
