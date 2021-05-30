@@ -76,8 +76,20 @@ def parse_rule(text, grammar, rule):
     if isinstance(rule, str):
         if text.startswith(rule):
             return rule, text[len(rule):]
+        else:
+            return None, text
+    elif isinstance(rule, dict) and 'type' in rule:
+        if rule['type'] == 'any':
+            for subrule in rule['expressions']:
+                subresult, subtext =  parse_rule(text, grammar, subrule)
+                if subresult:
+                    return subresult, subtext
+            return None, text
 
-    return None, text
+
+
+    raise Exception(f'Unknown rule: {rule}')
+
 
 
 

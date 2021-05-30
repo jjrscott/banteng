@@ -1,6 +1,12 @@
 {
   "rules": {
-    "lines": "Hello"
+    "lines": {
+      "expressions": [
+        "Hello",
+        "Good"
+      ],
+      "type": "any"
+    }
   },
   "syntax": "lines",
   "url": "..."
