@@ -49,8 +49,8 @@ def main():
             text = file.read()
             ast[input_path] = generate_ast(text, grammar)
 
-    # if len(ast) == 1:
-    #     ast = list(ast.values())[0]
+    if len(ast) == 1:
+        ast = list(ast.values())[0]
 
     outputContent = json.dumps(ast, sort_keys=True, indent=2)
 
@@ -68,10 +68,17 @@ def generate_ast(text, grammar):
     # if isinstance(rule, list):
 
     foo = dict()
-    foo['ast'] = None
-    foo['unmatched'] = text
+    foo['ast'], foo['unmatched'] = parse_rule(text, grammar, grammar['rules'][grammar['syntax']])
 
     return foo
+
+def parse_rule(text, grammar, rule):
+    if isinstance(rule, str):
+        if text.startswith(rule):
+            return rule, text[len(rule):]
+
+    return None, text
+
 
 
 if __name__ == "__main__":
