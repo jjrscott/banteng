@@ -87,14 +87,14 @@ def _parse_rule(text, grammar, rule):
             return rule, text[len(rule):]
         else:
             return None, text
-    elif isinstance(rule, dict) and 'type' in rule:
-        if rule['type'] == 'any':
+    elif isinstance(rule, dict):
+        if 'type' in rule and rule['type'] == 'any':
             for subrule in rule['values']:
                 subresult, subtext = parse_rule(text, grammar, subrule)
                 if subresult:
                     return subresult, subtext
             return None, text
-        elif rule['type'] == 'all':
+        elif 'type' in rule and rule['type'] == 'all':
             results = list()
             for subrule in rule['values']:
                 subresult, text = parse_rule(text, grammar, subrule)
@@ -103,6 +103,21 @@ def _parse_rule(text, grammar, rule):
                 else:
                     return None, text
             return results, text
+        elif 'min' in rule or 'max' in rule:
+            results = list()
+            while True:
+                subresult, text = parse_rule(text, grammar, rule['values'])
+                if subresult:
+                    results.append(subresult)
+                    if 'max' in rule and len(results) == rule['max']:
+                        return results, text
+                elif 'min' in rule and len(results) < rule['min']:
+                    return None, text
+                else:
+                    return results, text
+
+
+
 
     raise Exception(f'Unknown rule: {rule}')
 

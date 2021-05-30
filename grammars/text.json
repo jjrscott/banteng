@@ -56,15 +56,13 @@
         "y",
         "z",
         " ",
-        "!"
+        "!",
+        "\n"
       ]
     },
-    "good": "Good",
     "lines": {
-      "type": "all",
-      "values": [
-        "chars"
-      ]
+      "min": 0,
+      "values": "chars"
     }
   },
   "syntax": "lines",
