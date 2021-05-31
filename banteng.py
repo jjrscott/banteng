@@ -76,7 +76,6 @@ def parse_rule(text, grammar, rule):
     if subresult and isinstance(rule, str) and rule != subresult:
         subresult = {"type" : rule, "result" : subresult}
 
-
     return subresult, subtext
 
 def _parse_rule(text, grammar, rule):

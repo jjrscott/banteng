@@ -9,29 +9,22 @@ Basically [Backus–Naur form](https://en.wikipedia.org/wiki/Backus–Naur_form)
 ### Top level
 
 
-```json
+```js
 {
   "rules": {
     ...
   },
   "syntax": "<root rule>",
-  "url": "..."
+  "url": "..." // URL of format definition
 }
 ```
 
-### String terminal
+### String terminal / Rule reference
 
-```json
+If a string matches a rule name then it will be treated as a symbol, otherwise it will be treated as a raw string to match.
+
+```js
 "..."
-```
-
-### Binary terminal
-
-```json
-{
-  "type" : "hex",
-  "value" : "<Hex da1a>"
-}
 ```
 
 ### Regex terminal
@@ -40,26 +33,34 @@ Removed as it ties the format to Python's regular expression grammar.
 
 ### Or / Any expression
 
-```json
+Will match any of the expressions given, in the order they are defined.
+
+```js
 {
   "type" : "any",
-  "expressions" : [subexpression1, subexpression2, ...]
+  "values" : [subexpression1, subexpression2, ...]
 }
 ```
 
 ### And expression
 
-```json
-[subexpression1, subexpression2, ...]
+Will match **every** expression given, in the order they are defined.
+
+```js
+{
+  "type" : "all",
+  "values" : [subexpression1, subexpression2, ...]
+}
 ```
 
-### Subexpression
+### Multiple matches
 
-```json
+
+
+```js
 {
-  "type" : "subexpression",
-  "expression" : <subexpression>,
-  "min" : <number>, // optional
-  "max" : <number>, // optional
+  "values" : <subexpression>,
+  "min" : <number>, // optional treated as zero
+  "max" : <number>, // optional, treated as infinite
 }
 ```
