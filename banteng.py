@@ -78,6 +78,12 @@ def parse_rule(text, grammar, rule):
 
     return subresult, subtext
 
+def decode_code_point(value):
+    if isinstance(value, str):
+        return ord(value)
+    else:
+        raise Exception(f'Unknown type: {type(value)}')
+
 def _parse_rule(text, grammar, rule):
     if isinstance(rule, str):
         if rule in grammar['rules']:
@@ -92,6 +98,10 @@ def _parse_rule(text, grammar, rule):
                 subresult, subtext = parse_rule(text, grammar, subrule)
                 if subresult:
                     return subresult, subtext
+            return None, text
+        elif 'type' in rule and rule['type'] == 'range':
+            if len(text) and decode_code_point(rule['begin']) <= ord(text[0]) and decode_code_point(rule['end']) >= ord(text[0]):
+                return text[0], text[1:]
             return None, text
         elif 'type' in rule and rule['type'] == 'all':
             results = list()

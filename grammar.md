@@ -55,12 +55,22 @@ Will match **every** expression given, in the order they are defined.
 
 ### Multiple matches
 
-
-
 ```js
 {
   "values" : <subexpression>,
   "min" : <number>, // optional treated as zero
   "max" : <number>, // optional, treated as infinite
+}
+```
+
+## Range
+
+Defines a inclusive character set from the `begin` to the `end`.
+
+```js
+{
+  "begin" : Single character or number
+  "end" : Single character or number
+  "type" : "range"
 }
 ```
