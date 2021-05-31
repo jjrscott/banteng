@@ -56,14 +56,28 @@
         "y",
         "z",
         " ",
-        "!",
-        "\n"
+        "!"
+      ]
+    },
+    "line": {
+      "type": "all",
+      "values": [
+        {
+          "min": 0,
+          "values": "chars"
+        },
+        {
+          "max": 1,
+          "min": 0,
+          "values": "newline"
+        }
       ]
     },
     "lines": {
       "min": 0,
-      "values": "chars"
-    }
+      "values": "line"
+    },
+    "newline": "\n"
   },
   "syntax": "lines",
   "url": "https://en.wikipedia.org/wiki/Plain_text"
