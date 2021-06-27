@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="787.6" height="307" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- Generated at Mon Jun 28 00:25:03 2021 by:
+  Graph::Easy v0.76
+  Graph::Easy::As_svg v0.28
+-->
+
+<title>Untitled graph</title>
+<defs>
+ <!-- open arrow -->
+ <g id="ah" stroke-linecap="round" stroke-width="1">
+  <line x1="-8" y1="-4" x2="1" y2="0" />
+  <line x1="1" y1="0" x2="-8" y2="4" />
+ </g>
+
+ <!-- class definitions -->
+ <style type="text/css"><![CDATA[
+ .edge {
+  font-size: 13px;
+  stroke: black;
+  text-align: center;
+ }
+ .graph {
+  font-size: 16px;
+  text-align: center;
+ }
+ .node {
+  font-size: 16px;
+  text-align: center;
+ }
+ ]]></style>
+</defs>
+
+<!-- graph background with border (mainly for printing) -->
+<rect rx="3" ry="3" x="0.5" y="0.5" width="785.6" height="305" fill="white" stroke="white" />
+
+<g id="10" class="edge">
+ <!-- from Grammar\nAST to General\nparser -->
+ <!-- horizontal -->
+ <line x1="473.84" y1="44" x2="529.16" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="530.16" y="44"/>
+</g>
+
+<g id="12" class="edge">
+ <!-- from Grammar\nAST to JSON\nlibrary -->
+ <!-- vertical -->
+ <line x1="416.8" y1="77.4" x2="416.8" y2="127.6" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(416.8 128.6)rotate(90)"/>
+</g>
+
+<g id="14" class="edge">
+ <!-- from JSON\nlibrary to JSON -->
+ <!-- vertical -->
+ <line x1="416.8" y1="195.4" x2="416.8" y2="245.6" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(416.8 246.6)rotate(90)"/>
+</g>
+
+<g id="2" class="edge">
+ <!-- from Target\ncontent to General\nparser -->
+ <!-- vertical -->
+ <line x1="579.2" y1="78.4" x2="579.2" y2="128.6" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(579.2 77.4)rotate(-90)"/>
+</g>
+
+<g id="4" class="edge">
+ <!-- from General\nparser to Target\nAST -->
+ <!-- horizontal -->
+ <line x1="628.24" y1="44" x2="683.56" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="684.56" y="44"/>
+</g>
+
+<g id="7" class="edge">
+ <!-- from Grammar\ndefinition to Hardcoded\nparser -->
+ <!-- horizontal -->
+ <line x1="124.04" y1="44" x2="179.36" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="180.36" y="44"/>
+</g>
+
+<g id="9" class="edge">
+ <!-- from Hardcoded\nparser to Grammar\nAST -->
+ <!-- horizontal -->
+ <line x1="303.44" y1="44" x2="358.76" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="359.76" y="44"/>
+</g>
+
+<g id="0" class="node">
+ <!-- Target\ncontent, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="83" x="537.7" y="135.5" />
+ <text x="579" y="159" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="579" y="157">Target</tspan>
+  <tspan x="579" y="175">content</tspan>
+ </text>
+</g>
+
+<g id="1" class="node">
+ <!-- General\nparser, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="83" x="537.7" y="17.5" />
+ <text x="579" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="579" y="39">General</tspan>
+  <tspan x="579" y="57">parser</tspan>
+ </text>
+</g>
+
+<g id="3" class="node">
+ <!-- Target\nAST, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="77" x="692.1" y="17.5" />
+ <text x="730" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="730" y="39">Target</tspan>
+  <tspan x="730" y="57">AST</tspan>
+ </text>
+</g>
+
+<g id="5" class="node">
+ <!-- Grammar\ndefinition, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="99" x="17.5" y="17.5" />
+ <text x="67" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="67" y="39">Grammar</tspan>
+  <tspan x="67" y="57">definition</tspan>
+ </text>
+</g>
+
+<g id="6" class="node">
+ <!-- Hardcoded\nparser, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="108" x="187.9" y="17.5" />
+ <text x="241" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="241" y="39">Hardcoded</tspan>
+  <tspan x="241" y="57">parser</tspan>
+ </text>
+</g>
+
+<g id="8" class="node">
+ <!-- Grammar\nAST, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="99" x="367.3" y="17.5" />
+ <text x="416" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="416" y="39">Grammar</tspan>
+  <tspan x="416" y="57">AST</tspan>
+ </text>
+</g>
+
+<g id="11" class="node">
+ <!-- JSON\nlibrary, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="99" x="367.3" y="135.5" />
+ <text x="416" y="159" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="416" y="157">JSON</tspan>
+  <tspan x="416" y="175">library</tspan>
+ </text>
+</g>
+
+<g id="13" class="node">
+ <!-- JSON, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="35" stroke="#000000" width="99" x="367.3" y="253.5" />
+ <text x="416" y="277" style="font-family:serif" fill="#000000" text-anchor="middle">JSON</text>
+</g>
+
+</svg>

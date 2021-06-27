@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="729.4" height="207" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- Generated at Mon Jun 28 00:25:02 2021 by:
+  Graph::Easy v0.76
+  Graph::Easy::As_svg v0.28
+-->
+
+<title>Untitled graph</title>
+<defs>
+ <!-- open arrow -->
+ <g id="ah" stroke-linecap="round" stroke-width="1">
+  <line x1="-8" y1="-4" x2="1" y2="0" />
+  <line x1="1" y1="0" x2="-8" y2="4" />
+ </g>
+
+ <!-- class definitions -->
+ <style type="text/css"><![CDATA[
+ .edge {
+  font-size: 13px;
+  stroke: black;
+  text-align: center;
+ }
+ .graph {
+  font-size: 16px;
+  text-align: center;
+ }
+ .node {
+  font-size: 16px;
+  text-align: center;
+ }
+ ]]></style>
+</defs>
+
+<!-- graph background with border (mainly for printing) -->
+<rect rx="3" ry="3" x="0.5" y="0.5" width="727.4" height="205" fill="white" stroke="white" />
+
+<g id="10" class="edge">
+ <!-- from Grammar\nAST to General\nparser -->
+ <!-- horizontal -->
+ <line x1="415.64" y1="44" x2="470.96" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="471.96" y="44"/>
+</g>
+
+<g id="2" class="edge">
+ <!-- from Target\ncontent to General\nparser -->
+ <!-- vertical -->
+ <line x1="521" y1="78.4" x2="521" y2="128.6" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(521 77.4)rotate(-90)"/>
+</g>
+
+<g id="4" class="edge">
+ <!-- from General\nparser to Target\nAST -->
+ <!-- horizontal -->
+ <line x1="570.04" y1="44" x2="625.36" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" x="626.36" y="44"/>
+</g>
+
+<g id="7" class="edge">
+ <!-- from JSON to JSON\nlibrary -->
+ <!-- horizontal -->
+ <line x1="88.68" y1="44" x2="148.12" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(87.68 44)rotate(180)"/>
+ <use stroke="#000000" xlink:href="#ah" x="149.12" y="44"/>
+</g>
+
+<g id="9" class="edge">
+ <!-- from JSON\nlibrary to Grammar\nAST -->
+ <!-- horizontal -->
+ <line x1="240.48" y1="44" x2="299.92" y2="44" stroke="#000000" />
+ <use stroke="#000000" xlink:href="#ah" transform="translate(239.48 44)rotate(180)"/>
+ <use stroke="#000000" xlink:href="#ah" x="300.92" y="44"/>
+</g>
+
+<g id="0" class="node">
+ <!-- Target\ncontent, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="83" x="479.5" y="135.5" />
+ <text x="521" y="159" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="521" y="157">Target</tspan>
+  <tspan x="521" y="175">content</tspan>
+ </text>
+</g>
+
+<g id="1" class="node">
+ <!-- General\nparser, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="83" x="479.5" y="17.5" />
+ <text x="521" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="521" y="39">General</tspan>
+  <tspan x="521" y="57">parser</tspan>
+ </text>
+</g>
+
+<g id="3" class="node">
+ <!-- Target\nAST, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="77" x="633.9" y="17.5" />
+ <text x="672" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="672" y="39">Target</tspan>
+  <tspan x="672" y="57">AST</tspan>
+ </text>
+</g>
+
+<g id="5" class="node">
+ <!-- JSON, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="62" x="17.5" y="17.5" />
+ <text x="48" y="50" style="font-family:serif" fill="#000000" text-anchor="middle">JSON</text>
+</g>
+
+<g id="6" class="node">
+ <!-- JSON\nlibrary, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="74" x="157.3" y="17.5" />
+ <text x="194" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="194" y="39">JSON</tspan>
+  <tspan x="194" y="57">library</tspan>
+ </text>
+</g>
+
+<g id="8" class="node">
+ <!-- Grammar\nAST, rect -->
+ <rect rx="3" ry="3" fill="#ffffff" height="53" stroke="#000000" width="99" x="309.1" y="17.5" />
+ <text x="358" y="41" style="font-family:serif" fill="#000000" text-anchor="middle">
+  <tspan x="358" y="39">Grammar</tspan>
+  <tspan x="358" y="57">AST</tspan>
+ </text>
+</g>
+
+</svg>
